@@ -5,13 +5,15 @@ on:
   schedule:
     - cron: "0 0 * * *"
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   update-sponsors:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       - name: Set node
         uses: actions/setup-node@v2
