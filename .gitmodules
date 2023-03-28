@@ -1,0 +1,3 @@
+[submodule "packages/sponsorkit"]
+	path = packages/sponsorkit
+	url = git@github.com:401U/sponsorkit.git

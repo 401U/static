@@ -1,0 +1,61 @@
+name: Scheduler
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+    branches: [master]
+
+jobs:
+  update-sponsors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+
+      - run: npx pnpm i
+
+      - name: Cached fonts
+        uses: actions/cache@v3
+        id: cache-fonts
+        with:
+          path: fonts/
+          key: font-lxgw-wenkai
+
+      - name: Download fonts
+        if: steps.cache-fonts.outputs.cache-hit != 'true'
+        uses: robinraju/release-downloader@v1.7
+        with:
+          repository: lxgw/LxgwWenKai
+          tag: v1.250
+          fileName: "*.ttf"
+          tarBall: false
+          zipBall: false
+          out-file-path: fonts/
+
+      - name: Install fonts
+        run: |
+          sudo mkdir -p /usr/share/fonts/TTF/
+          sudo cp fonts/*.ttf /usr/share/fonts/TTF/
+          sudo fc-cache -fv
+          fc-list | grep LXGW
+        shell: bash
+
+      - name: Update sponsors
+        run: npm run sponsors
+        env:
+          SPONSORKIT_AFDIAN_USER_ID: ${{ secrets.SPONSORKIT_AFDIAN_USER_ID }}
+          SPONSORKIT_AFDIAN_TOKEN: ${{ secrets.SPONSORKIT_AFDIAN_TOKEN }}
+
+      - name: Commit
+        uses: EndBug/add-and-commit@v4
+        with:
+          message: "chore: update sponsors"
+          add: "sponsors.*"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
