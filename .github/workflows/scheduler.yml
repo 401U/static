@@ -49,7 +49,7 @@ jobs:
         shell: bash
 
       - name: Update sponsors
-        run: npm run sponsors
+        run: npm -C packages/sponsorkit run build && npm run sponsors
         env:
           SPONSORKIT_AFDIAN_USER_ID: ${{ secrets.SPONSORKIT_AFDIAN_USER_ID }}
           SPONSORKIT_AFDIAN_TOKEN: ${{ secrets.SPONSORKIT_AFDIAN_TOKEN }}
