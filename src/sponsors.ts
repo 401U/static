@@ -15,7 +15,7 @@ function customConf(cn: boolean, wide: boolean) {
       {
         title: cn ? "过往赞助者": "Past Sponsors",
         monthlyDollars: -1,
-        preset: presets.xs
+        preset: presets.medium
       },
       {
         title: cn ? "赞助者": "Sponsors",
