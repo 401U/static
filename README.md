@@ -3,6 +3,7 @@
 Host for static files
 
 ## sponsors
+Powered by [SponsorKit](https://github.com/antfu/sponsorkit)
 
 <details>
 <summary>sponsors/en.svg</summary>
@@ -42,4 +43,17 @@ Host for static files
 <details>
 <summary>sponsors/cn.wide.png</summary>
 <img src="sponsors/cn.wide.png">
+</details>
+
+## snk - Github Contribution Snake
+Powered by [snk](https://github.com/Platane/snk)
+
+<details>
+<summary>snk/contribution-snake.svg</summary>
+<img src="snk/contribution-snake.svg">
+</details>
+
+<details>
+<summary>snk/contribution-snake-dark.svg</summary>
+<img src="snk/contribution-snake-dark.svg">
 </details>
