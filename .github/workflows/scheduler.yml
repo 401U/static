@@ -54,7 +54,7 @@ jobs:
           SPONSORKIT_AFDIAN_USER_ID: ${{ secrets.SPONSORKIT_AFDIAN_USER_ID }}
           SPONSORKIT_AFDIAN_TOKEN: ${{ secrets.SPONSORKIT_AFDIAN_TOKEN }}
           
-      - name: Snk generate
+      - name: Update Snk
         uses: Platane/snk/svg-only@v2
         with:
           github_user_name: ${{ github.repository_owner }}
@@ -62,15 +62,15 @@ jobs:
             snk/contribution-snake.svg
             snk/contribution-snake-dark.svg?palette=github-dark
 
-      - name: Commit
+      - name: Commit changes
         uses: EndBug/add-and-commit@v4
         with:
           message: "chore: update static files"
-          add: '["sponsors", "snk"]'
+          add: |
+            sponsors/*
+            snk/*
           author_name: 401U
           author_email: hi@4o1.to
-          committer_name: GitHub Actions
-          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
