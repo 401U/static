@@ -1,24 +1,40 @@
 import { defineConfig, presets } from "../packages/sponsorkit"
 import { run } from "../packages/sponsorkit/src/run"
 
-function customConf(cn: boolean, wide: boolean) {
-  let name = cn ? 'cn': 'en'
-  if (wide) {
+type Lang = 'en' | 'cn'
+
+type Tiers = 'Past Sponsors' | 'Sponsors'
+
+const tierTitles: Record<Lang, Record<Tiers, string>> = {
+  'en': {
+    'Past Sponsors': 'Past Sponsors',
+    'Sponsors': 'Sponsors',
+  },
+  'cn': {
+    'Past Sponsors': '过往赞助者',
+    'Sponsors': '赞助者',
+  },
+}
+
+function getConfig(lang: Lang = 'en', isWide: boolean = false) {
+  let name = lang
+  if (isWide) {
     name += '.wide'
   }
+  const titles = tierTitles[lang]
   return defineConfig({
     outputDir: "./sponsors",
     name,
-    width: wide ? 1800 : 800,
+    width: isWide ? 1800 : 800,
     formats: ["svg", "png"],
     tiers: [
       {
-        title: cn ? "过往赞助者": "Past Sponsors",
+        title: titles['Past Sponsors'],
         monthlyDollars: -1,
         preset: presets.medium
       },
       {
-        title: cn ? "赞助者": "Sponsors",
+        title: titles['Sponsors'],
         monthlyDollars: 0,
         preset: presets.medium
       }
@@ -27,12 +43,11 @@ function customConf(cn: boolean, wide: boolean) {
 }
 
 
-
 const configs = [
-  customConf(false, false),
-  customConf(false, true),
-  customConf(true, false),
-  customConf(true, true),
+  getConfig('en', false),
+  getConfig('cn', false),
+  getConfig('en', true),
+  getConfig('cn', true),
 ]
 
 configs.forEach(async conf => {
