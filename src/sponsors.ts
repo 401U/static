@@ -1,47 +1,46 @@
-import { defineConfig, presets } from "../packages/sponsorkit"
-import { run } from "../packages/sponsorkit/src/run"
+import { defineConfig, presets } from '../packages/sponsorkit'
+import { run } from '../packages/sponsorkit/src/run'
 
 type Lang = 'en' | 'cn'
 
 type Tiers = 'Past Sponsors' | 'Sponsors'
 
 const tierTitles: Record<Lang, Record<Tiers, string>> = {
-  'en': {
+  en: {
     'Past Sponsors': 'Past Sponsors',
     'Sponsors': 'Sponsors',
   },
-  'cn': {
+  cn: {
     'Past Sponsors': '过往赞助者',
     'Sponsors': '赞助者',
   },
 }
 
-function getConfig(lang: Lang = 'en', isWide: boolean = false) {
+function getConfig(lang: Lang = 'en', isWide = false) {
   let name = lang
-  if (isWide) {
+  if (isWide)
     name += '.wide'
-  }
+
   const titles = tierTitles[lang]
   return defineConfig({
-    outputDir: "./sponsors",
+    outputDir: './sponsors',
     name,
     width: isWide ? 1800 : 800,
-    formats: ["svg", "png"],
+    formats: ['svg', 'png'],
     tiers: [
       {
         title: titles['Past Sponsors'],
         monthlyDollars: -1,
-        preset: presets.medium
+        preset: presets.medium,
       },
       {
-        title: titles['Sponsors'],
+        title: titles.Sponsors,
         monthlyDollars: 0,
-        preset: presets.medium
-      }
-    ]
+        preset: presets.medium,
+      },
+    ],
   })
 }
-
 
 const configs = [
   getConfig('en', false),
@@ -50,6 +49,6 @@ const configs = [
   getConfig('cn', true),
 ]
 
-configs.forEach(async conf => {
+configs.forEach(async (conf) => {
   await run(conf)
 })
