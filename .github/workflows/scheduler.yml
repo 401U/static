@@ -66,12 +66,14 @@ jobs:
 
     steps:
       - name: Update snk
-        uses: Platane/snk/svg-only@v2
+        uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
             snk/contribution-snake.svg
             snk/contribution-snake-dark.svg?palette=github-dark
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload snk artifact
         uses: actions/upload-artifact@v2
