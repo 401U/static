@@ -58,7 +58,7 @@ export default defineConfig({
     },
     {
         name: 'circle.wide',
-        width: 800,
+        width: 1800,
         renderer: 'circles'
     }
   ]

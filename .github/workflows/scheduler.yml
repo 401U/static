@@ -14,12 +14,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          node-version: lts/*
 
       - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version: 18.x
+
+      - run: corepack enable && pnpm i
 
       - name: Cache fonts
         uses: actions/cache@v3
@@ -48,9 +50,7 @@ jobs:
         shell: bash
 
       - name: Update sponsors
-        run: |
-          npm install
-          npx sponsorkit
+        run: npm run build
         env:
           SPONSORKIT_AFDIAN_USER_ID: ${{ secrets.SPONSORKIT_AFDIAN_USER_ID }}
           SPONSORKIT_AFDIAN_TOKEN: ${{ secrets.SPONSORKIT_AFDIAN_TOKEN }}
