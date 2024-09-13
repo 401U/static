@@ -1,14 +1,14 @@
-import { defineConfig, presets } from 'sponsorkit'
+import { defineConfig, presets, tierPresets } from 'sponsorkit'
 
 const tierCn = [
     {
         title: '过往赞助者',
         monthlyDollars: -1,
-        preset: presets.medium,
+        preset: tierPresets.base,
     },
     {
         title: '赞助者',
-        preset: presets.medium,
+        preset: tierPresets.medium,
     },
 ]
 
@@ -16,19 +16,20 @@ const tierEn = [
     {
         title: 'Past Sponsors',
         monthlyDollars: -1,
-        preset: presets.medium,
+        preset: tierPresets.base,
     },
     {
         title: 'Sponsors',
         monthlyDollars: 0,
-        preset: presets.medium,
+        preset: tierPresets.medium,
     },
 ]
 
 export default defineConfig({
   outputDir: './sponsors',
-  formats: ['svg', 'png', 'json'],
+  formats: ['svg', 'png'],
   renderer: 'tiers',
+  includePastSponsors: true,
   renders: [
     {
         name: 'en.wide',
