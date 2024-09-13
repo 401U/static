@@ -48,7 +48,9 @@ jobs:
         shell: bash
 
       - name: Update sponsors
-        run: npx sponsorkit
+        run: |
+          npm install
+          npx sponsorkit
         env:
           SPONSORKIT_AFDIAN_USER_ID: ${{ secrets.SPONSORKIT_AFDIAN_USER_ID }}
           SPONSORKIT_AFDIAN_TOKEN: ${{ secrets.SPONSORKIT_AFDIAN_TOKEN }}
