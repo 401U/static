@@ -48,22 +48,22 @@ Powered by [SponsorKit](https://github.com/antfu/sponsorkit)
 
 <details>
 <summary>sponsors/circle.svg</summary>
-<img src="ssponsors/circle.svg">
+<img src="sponsors/circle.svg">
 </details>
 
 <details>
 <summary>sponsors/circle.png</summary>
-<img src="ssponsors/circle.png">
+<img src="sponsors/circle.png">
 </details>
 
 <details>
 <summary>sponsors/circle.wide.svg</summary>
-<img src="ssponsors/circle.wide.svg">
+<img src="sponsors/circle.wide.svg">
 </details>
 
 <details>
 <summary>sponsors/circle.wide.png</summary>
-<img src="ssponsors/circle.wide.png">
+<img src="sponsors/circle.wide.png">
 </details>
 
 ## snk - Github Contribution Snake
