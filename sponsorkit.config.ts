@@ -8,7 +8,6 @@ const tierCn = [
     },
     {
         title: '赞助者',
-        monthlyDollars: 0,
         preset: presets.medium,
     },
 ]
@@ -28,7 +27,7 @@ const tierEn = [
 
 export default defineConfig({
   outputDir: './sponsors',
-  formats: ['svg', 'png'],
+  formats: ['svg', 'png', 'json'],
   renderer: 'tiers',
   renders: [
     {
