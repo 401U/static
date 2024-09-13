@@ -45,6 +45,27 @@ Powered by [SponsorKit](https://github.com/antfu/sponsorkit)
 <img src="sponsors/cn.wide.png">
 </details>
 
+
+<details>
+<summary>sponsors/circle.svg</summary>
+<img src="ssponsors/circle.svg">
+</details>
+
+<details>
+<summary>sponsors/circle.png</summary>
+<img src="ssponsors/circle.png">
+</details>
+
+<details>
+<summary>sponsors/circle.wide.svg</summary>
+<img src="ssponsors/circle.wide.svg">
+</details>
+
+<details>
+<summary>sponsors/circle.wide.png</summary>
+<img src="ssponsors/circle.wide.png">
+</details>
+
 ## snk - Github Contribution Snake
 Powered by [snk](https://github.com/Platane/snk)
 

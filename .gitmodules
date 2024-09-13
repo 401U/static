@@ -1,3 +1,0 @@
-[submodule "packages/sponsorkit"]
-	path = packages/sponsorkit
-	url = git@github.com:antfu/sponsorkit.git

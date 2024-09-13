@@ -21,8 +21,6 @@ jobs:
         with:
           node-version: 18.x
 
-      - run: npx pnpm i
-
       - name: Cache fonts
         uses: actions/cache@v3
         id: cache-fonts
@@ -50,7 +48,7 @@ jobs:
         shell: bash
 
       - name: Update sponsors
-        run: npm -C packages/sponsorkit run build && npm run sponsors
+        run: npx sponsorkit
         env:
           SPONSORKIT_AFDIAN_USER_ID: ${{ secrets.SPONSORKIT_AFDIAN_USER_ID }}
           SPONSORKIT_AFDIAN_TOKEN: ${{ secrets.SPONSORKIT_AFDIAN_TOKEN }}
