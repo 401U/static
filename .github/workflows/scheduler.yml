@@ -35,7 +35,7 @@ jobs:
         uses: robinraju/release-downloader@v1.8
         with:
           repository: lxgw/LxgwWenKai
-          tag: v1.250
+          tag: v1.511
           fileName: "*.ttf"
           tarBall: false
           zipBall: false
